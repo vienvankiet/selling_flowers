@@ -3,12 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.pixabay.com/animation/2023/06/01/08/47/08-47-04-41__480.png"
+      type="image/x-icon"
+    />
     <title>Flowerly - Cửa hàng hoa tươi</title>
 
-    <!-- Bootstrap 5.3 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     />
 
     <link
@@ -16,16 +32,7 @@
       rel="stylesheet"
     />
 
-    <!-- Font iOS (San Francisco & fallback) -->
     <style>
-      @font-face {
-        font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont,
-          "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        src: local("SF Pro Display"), local("San Francisco");
-      }
-
       :root {
         --primary: #38a169;
         --primary-600: #2f855a;
@@ -56,6 +63,11 @@
         transition: var(--transition);
       }
 
+      /* Thêm đổ bóng cho navbar khi cuộn */
+      .navbar.scrolled {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
       .navbar-brand {
         letter-spacing: 0.3px;
         font-size: 1.5rem;
@@ -67,6 +79,7 @@
         transition: var(--transition);
       }
 
+      /* Active state được quản lý bởi ScrollSpy */
       .nav-link.active,
       .nav-link:hover {
         color: var(--primary) !important;
@@ -170,8 +183,15 @@
         color: #6b7280;
       }
 
-      .gallery img {
+      /* Gallery */
+      .gallery a {
+        display: block;
+        overflow: hidden;
         border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      }
+
+      .gallery img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -179,8 +199,8 @@
         transition: var(--transition);
       }
 
-      .gallery img:hover {
-        transform: scale(1.03);
+      .gallery a:hover img {
+        transform: scale(1.05);
         filter: brightness(1);
       }
 
@@ -212,10 +232,10 @@
       }
     </style>
   </head>
-  <body>
+  <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80">
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#">🌸 Flowerly</a>
+        <a class="navbar-brand fw-bold" href="./index.html">🌸 Flowerly</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -230,16 +250,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#home">Trang chủ</a>
+              <a class="nav-link" href="./index.html">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#products">Sản phẩm</a>
+              <a class="nav-link" href="./pages/products.html">Sản phẩm</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#gallery">Bộ sưu tập</a>
+              <a class="nav-link" href="./pages/gallery.html">Bộ sưu tập</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Liên hệ</a>
+              <a class="nav-link" href="./pages/contact.html">Liên hệ</a>
             </li>
           </ul>
         </div>
@@ -248,11 +268,17 @@
 
     <header id="home" class="hero text-center py-5">
       <div class="container py-4">
-        <h1 class="display-5 fw-bold text-success">
+        <h1 class="display-5 fw-bold text-success" data-aos="fade-down">
           Chào mừng đến với Flowerly
         </h1>
-        <p class="lead mb-4">Hoa tươi – Gửi trọn yêu thương 🌷</p>
-        <a href="#products" class="btn btn-primary-soft px-4 py-2"
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+          Hoa tươi – Gửi trọn yêu thương 🌷
+        </p>
+        <a
+          href="#products"
+          class="btn btn-primary-soft px-4 py-2"
+          data-aos="fade-up"
+          data-aos-delay="200"
           >Xem sản phẩm</a
         >
       </div>
@@ -260,10 +286,14 @@
 
     <section id="products" class="py-5">
       <div class="container text-center">
-        <h2 class="section-title mb-2">Sản phẩm nổi bật</h2>
-        <p class="section-subtitle mb-4">Những bó hoa được yêu thích nhất</p>
+        <div data-aos="fade-up">
+          <h2 class="section-title mb-2">
+            <i class="bi bi-star-fill text-warning"></i> Sản phẩm nổi bật
+          </h2>
+          <p class="section-subtitle mb-4">Những bó hoa được yêu thích nhất</p>
+        </div>
         <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
-          <div class="col">
+          <div class="col" data-aos="fade-up" data-aos-delay="100">
             <div class="card product-card">
               <img
                 src="https://images.unsplash.com/photo-1520440229-6462be82b7b1?q=80&w=1200&auto=format&fit=crop"
@@ -277,14 +307,14 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price-tag">489.000₫</span>
                   <a href="#" class="btn btn-sm btn-primary-soft"
-                    >Thêm vào giỏ</a
+                    ><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a
                   >
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col" data-aos="fade-up" data-aos-delay="200">
             <div class="card product-card">
               <img
                 src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?q=80&w=1200&auto=format&fit=crop"
@@ -298,14 +328,14 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price-tag">559.000₫</span>
                   <a href="#" class="btn btn-sm btn-primary-soft"
-                    >Thêm vào giỏ</a
+                    ><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a
                   >
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col">
+          <div class="col" data-aos="fade-up" data-aos-delay="300">
             <div class="card product-card">
               <img
                 src="https://images.unsplash.com/photo-1502943693086-33b5b1cfdf2f?q=80&w=1200&auto=format&fit=crop"
@@ -319,7 +349,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <span class="price-tag">629.000₫</span>
                   <a href="#" class="btn btn-sm btn-primary-soft"
-                    >Thêm vào giỏ</a
+                    ><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a
                   >
                 </div>
               </div>
@@ -331,31 +361,53 @@
 
     <section id="gallery" class="py-5 bg-light">
       <div class="container text-center">
-        <h2 class="section-title mb-3">Bộ sưu tập</h2>
+        <h2 class="section-title mb-4" data-aos="fade-up">
+          <i class="bi bi-images text-success"></i> Bộ sưu tập
+        </h2>
         <div class="row g-3 gallery row-cols-2 row-cols-md-4">
-          <div class="col">
-            <img
-              src="https://images.unsplash.com/photo-1491002052546-bf38f186af53?q=80&w=1200&auto=format&fit=crop"
-              alt="Hoa cưới"
-            />
+          <div class="col" data-aos="zoom-in" data-aos-delay="100">
+            <a
+              href="https://images.unsplash.com/photo-1491002052546-bf38f186af53?q=80&w=1200&auto=format&fit=crop"
+              class="glightbox"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1491002052546-bf38f186af53?q=80&w=1200&auto=format&fit=crop"
+                alt="Hoa cưới"
+              />
+            </a>
           </div>
-          <div class="col">
-            <img
-              src="https://images.unsplash.com/photo-1447875569765-2b3db712f125?q=80&w=1200&auto=format&fit=crop"
-              alt="Hoa sinh nhật"
-            />
+          <div class="col" data-aos="zoom-in" data-aos-delay="200">
+            <a
+              href="https://images.unsplash.com/photo-1447875569765-2b3db712f125?q=80&w=1200&auto=format&fit=crop"
+              class="glightbox"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1447875569765-2b3db712f125?q=80&w=1200&auto=format&fit=crop"
+                alt="Hoa sinh nhật"
+              />
+            </a>
           </div>
-          <div class="col">
-            <img
-              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
-              alt="Hoa trang trí bàn"
-            />
+          <div class="col" data-aos="zoom-in" data-aos-delay="300">
+            <a
+              href="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+              class="glightbox"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+                alt="Hoa trang trí bàn"
+              />
+            </a>
           </div>
-          <div class="col">
-            <img
-              src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop"
-              alt="Hoa chúc mừng"
-            />
+          <div class="col" data-aos="zoom-in" data-aos-delay="400">
+            <a
+              href="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop"
+              class="glightbox"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop"
+                alt="Hoa chúc mừng"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -364,7 +416,7 @@
     <section class="py-5">
       <div class="container">
         <div class="row align-items-center g-4">
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-right">
             <blockquote class="quote p-4 mb-3">
               <p class="mb-2">
                 “Hoa rất tươi và được gói đẹp xuất sắc! Giao nhanh đúng hẹn, mẹ
@@ -379,7 +431,7 @@
               <footer class="text-muted">— Quốc Huy, Cái Răng</footer>
             </blockquote>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6" data-aos="fade-left">
             <img
               class="w-100 rounded-4 shadow"
               src="https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1200&auto=format&fit=crop"
@@ -395,7 +447,7 @@
       class="py-5 text-center"
       style="background: var(--soft-cream)"
     >
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <h3 class="fw-bold mb-2">Đặt hoa theo yêu cầu</h3>
         <p class="text-muted mb-3">
           Inbox cho Flowerly để được tư vấn phối mẫu trong 5 phút 🌸
@@ -409,13 +461,41 @@
         <p class="mb-1">
           © 2025 Flowerly | Thiết kế bởi <strong>Nhóm 2</strong>.
         </p>
-        <small
-          >Theo dõi chúng tôi: <a href="#">Facebook</a> ·
-          <a href="#">Instagram</a></small
-        >
+        <small>
+          Theo dõi chúng tôi:
+          <a href="#"><i class="bi bi-facebook"></i> Facebook</a> ·
+          <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+        </small>
       </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+    <script>
+      // Khởi tạo AOS
+      AOS.init({
+        duration: 800, // Thời gian hiệu ứng
+        once: true, // Chỉ chạy hiệu ứng 1 lần
+      });
+
+      // Khởi tạo GLightbox
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+      });
+
+      // Thêm shadow cho Navbar khi cuộn
+      const navbar = document.querySelector(".navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
   </body>
 </html>
