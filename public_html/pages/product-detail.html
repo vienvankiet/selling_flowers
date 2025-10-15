@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chi tiết sản phẩm | Flowerly</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #fff8f8;
+        font-family: "Segoe UI", sans-serif;
+      }
+      .product-form {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 900px;
+      }
+      .product-image {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+      }
+      .voucher-box {
+        border: 1px dashed #ff85a1;
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: #fff6f8;
+      }
+      .voucher-box label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-weight: 600;
+        margin-top: 1.5rem;
+        color: #d63384;
+      }
+      .hotline {
+        background: #ffe5ec;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        text-align: center;
+        font-weight: 600;
+        color: #b91c1c;
+        font-size: 1.2rem;
+      }
+      .btn-buy {
+        background-color: #d63384;
+        color: #fff;
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+      .btn-buy:hover {
+        background-color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form class="product-form" id="productForm">
+        <img id="productImage" class="product-image" src="" alt="Sản phẩm" />
+
+        <h3 id="productName" class="fw-bold"></h3>
+        <p class="text-muted" id="productCategory"></p>
+        <h4 class="text-danger" id="productPrice"></h4>
+        <p id="productDesc" class="mt-3"></p>
+
+        <div class="mt-3">
+          <label for="quantity" class="form-label fw-semibold">Số lượng:</label>
+          <input
+            type="number"
+            id="quantity"
+            class="form-control w-50"
+            value="1"
+            min="1"
+          />
+        </div>
+
+        <button type="button" class="btn btn-buy mt-3">Đặt hàng ngay</button>
+
+        <!-- Thông tin thiết kế -->
+        <div class="section-title">💐 Thông tin thiết kế</div>
+        <p>
+          Sản phẩm được cắm theo phong cách tự nhiên, sang trọng, sử dụng hoa
+          tươi cao cấp nhập khẩu. Màu sắc có thể thay đổi nhẹ tùy theo mùa,
+          nhưng vẫn đảm bảo tổng thể hài hòa và tinh tế.
+        </p>
+
+        <!-- Lưu ý khách hàng -->
+        <div class="section-title">📋 Lưu ý cho khách hàng</div>
+        <ul>
+          <li>
+            Hoa có thể thay đổi nhẹ tùy thời điểm, nhưng vẫn giữ đúng chủ đề và
+            giá trị nghệ thuật.
+          </li>
+          <li>
+            Nên đặt hàng trước 2–3 tiếng để đảm bảo thời gian giao đúng hẹn.
+          </li>
+          <li>Bảo quản nơi mát mẻ, tránh ánh nắng trực tiếp.</li>
+        </ul>
+
+        <!-- Voucher -->
+        <div class="section-title">🎁 Voucher của bạn</div>
+        <div class="voucher-box">
+          <label><input type="checkbox" /> Giảm 10% cho đơn từ 500.000đ</label>
+          <label><input type="checkbox" /> Freeship nội thành</label>
+          <label><input type="checkbox" /> Tặng thiệp chúc mừng</label>
+        </div>
+
+        <!-- Hotline -->
+        <div class="hotline">
+          ☎ Hotline đặt hàng nhanh:
+          <span class="text-danger">0901 234 567</span>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // Dữ liệu mẫu (giống file chính của bạn)
+      const allProducts = [
+      "../images/Hoahongpastel.jpeg",
+        { id: 1, name: 'Tulip Sắc Màu', price: 559000, category: 'Tulip', image: '../images/Hoahongpastel.jpeg', desc: 'Tươi trẻ, rực rỡ cho ngày đặc biệt.' },
+        { id: 2, name: 'Hồng Pastel Tinh Khôi', price: 489000, category: 'Hoa hồng', image: '../images/Hoahongpastel.jpeg', desc: 'Nhẹ nhàng và tinh tế, hợp sinh nhật & kỷ niệm.' },
+        { id: 3, name: 'Cẩm Tú Cầu Xanh', price: 629000, category: 'Cẩm tú cầu', image: '../images/Camtucau.jpg', desc: 'Trang nhã, phù hợp khai trương & chúc mừng.' },
+        { id: 4, name: 'Hoa cưới', price: 450000, category: 'Hoa hướng dương', image: '../images/Hoacuoi.png', desc: 'Mang năng lượng tích cực và niềm vui.' },
+        { id: 5, name: 'Hoa hồng tặng nàng', price: 510000, category: 'Tulip', image: '../images/Hoahong.jpg', desc: 'Lãng mạn, thủy chung và đầy mộng mơ.' },
+        { id: 6, name: 'Hoa sinh nhật tình yêu', price: 599000, category: 'Hoa hồng', image: '../images/Hoasinhnhatem.jpg', desc: 'Biểu tượng của tình yêu mãnh liệt, vĩnh cửu.' }
+      ];
+
+      // Lấy ID từ URL
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'));
+      const product = allProducts.find(p => p.id === id);
+
+      if (product) {
+        document.getElementById('productImage').src = product.image;
+        document.getElementById('productName').textContent = product.name;
+        document.getElementById('productCategory').textContent = 'Danh mục: ' + product.category;
+        document.getElementById('productPrice').textContent = product.price.toLocaleString('vi-VN') + 'đ';
+        document.getElementById('productDesc').textContent = product.desc;
+      } else {
+        document.querySelector('.container').innerHTML = '<h4 class="text-center mt-5 text-danger">Không tìm thấy sản phẩm</h4>';
+      }
+    </script>
+  </body>
+</html>

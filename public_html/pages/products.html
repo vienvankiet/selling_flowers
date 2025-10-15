@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowerly • Sản phẩm</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.pixabay.com/animation/2023/06/01/08/47/08-47-04-41__480.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../CSS/products.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="../index.html">🌸 Flowerly</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+          aria-label="Mở menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="nav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./gallery.html">Bộ sưu tập</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="py-5" style="background-color: var(--soft-cream)">
+      <div class="container text-center">
+        <h1 class="display-6 fw-bold">Tất cả sản phẩm</h1>
+        <p class="text-muted mb-0 lead">
+          Những bó hoa tươi thắm được tuyển chọn mỗi ngày.
+        </p>
+      </div>
+    </header>
+
+    <main class="py-5">
+      <div class="container">
+        <div class="toolbar p-3 mb-4">
+          <form class="row g-3 align-items-center" id="filter-form">
+            <div class="col-12 col-md-4">
+              <div class="input-group">
+                <span class="input-group-text bg-white"
+                  ><i class="bi bi-search"></i
+                ></span>
+                <input
+                  id="search-input"
+                  type="text"
+                  class="form-control"
+                  placeholder="Tìm tên bó hoa..."
+                />
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <select
+                id="category-select"
+                class="form-select"
+                aria-label="Sắp xếp sản phẩm"
+              >
+                <option value="all" selected>Tất cả danh mục</option>
+                <option value="Hoa hồng">Hoa hồng</option>
+                <option value="Tulip">Tulip</option>
+                <option value="Cẩm tú cầu">Cẩm tú cầu</option>
+                <option value="Hoa hướng dương">Hoa hướng dương</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3">
+              <select
+                id="sort-select"
+                class="form-select"
+                aria-label="Sắp xếp sản phẩm"
+              >
+                <option value="default" selected>Sắp xếp mặc định</option>
+                <option value="price-asc">Giá tăng dần</option>
+                <option value="price-desc">Giá giảm dần</option>
+                <option value="newest">Mới nhất</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-2">
+              <button type="submit" class="btn btn-success w-100">
+                <i class="bi bi-filter"></i> Lọc
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div
+          id="product-grid"
+          class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3"
+        >
+          <p id="no-results" class="text-center text-muted d-none">
+            Không tìm thấy sản phẩm phù hợp.
+          </p>
+        </div>
+
+        <nav class="mt-5" aria-label="Phân trang">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#">Trước</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">1</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Sau</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <footer id="contact" class="text-center py-4 bg-dark text-light">
+      <div class="container">
+        <small>© 2025 Flowerly • Thiết kế bởi Nhóm 2</small>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/products.js"></script>
+  </body>
+</html>
