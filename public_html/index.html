@@ -1,15 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="https://cdn.pixabay.com/animation/2023/06/01/08/47/08-47-04-41__480.png"
-      type="image/x-icon"
-    />
     <title>Flowerly - Cửa hàng hoa tươi</title>
 
+    <!-- ✅ Bootstrap CSS & Icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,206 +15,101 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
-    <link
-      href="https://fonts.cdnfonts.com/css/sf-pro-display"
-      rel="stylesheet"
-    />
 
+    <!-- 🌸 Custom Style -->
     <style>
-      :root {
-        --primary: #b5207c;
-        --primary-600: #b5207c;
-        --soft-cream: #fff7f3;
-        --soft-green: #e9f7ef;
-        --ink: #1f2937;
-        --transition: all 0.3s ease;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
       body {
+        font-family: "Poppins", sans-serif;
         scroll-behavior: smooth;
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-          "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color: var(--ink);
-        background-color: #ffffff;
       }
 
       /* Navbar */
       .navbar {
-        background-color: rgba(255, 255, 255, 0.85) !important;
-        backdrop-filter: saturate(120%) blur(8px);
-        -webkit-backdrop-filter: saturate(120%) blur(8px);
-        transition: var(--transition);
+        transition: all 0.3s ease;
       }
       .navbar.scrolled {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
-      .navbar-brand {
-        letter-spacing: 0.3px;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-      .nav-link {
-        font-weight: 500;
-        transition: var(--transition);
-      }
-      .nav-link.active,
-      .nav-link:hover {
-        color: var(--primary) !important;
+        background-color: #ffffffdd !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
-      /* Hero */
-      header.hero {
-        background: linear-gradient(135deg, #fdf6f0, #e3f9e5);
-        position: relative;
-        overflow: hidden;
-        animation: fadeIn 1s ease;
-      }
-      header.hero::after {
-        content: "";
-        position: absolute;
-        inset: -20% -10% auto auto;
-        width: 420px;
-        height: 420px;
-        background: radial-gradient(
-          closest-side,
-          rgba(227, 9, 137, 0.15),
-          transparent 70%
-        );
-        transform: rotate(25deg);
-        animation: pulse 5s infinite ease-in-out;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 0.8;
-          transform: scale(1) rotate(25deg);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.05) rotate(25deg);
-        }
+      /* Banner */
+      .carousel-item img {
+        height: 500px;
+        object-fit: cover;
       }
 
-      .btn-primary-soft {
-        background: var(--primary);
-        border-color: var(--primary);
-        color: #fff;
-        transition: var(--transition);
-      }
-      .btn-primary-soft:hover {
-        background: var(--primary-600);
-        border-color: var(--primary-600);
-        transform: scale(1.05);
-      }
-
-      /* Product Card */
-      .product-card {
+      /* Card Product */
+      .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         border: none;
-        overflow: hidden;
-        border-radius: 16px;
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-        transition: var(--transition);
-        height: 100%;
       }
-      .product-card:hover {
-        transform: translateY(-6px) scale(1.02);
-        box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1);
-      }
-      .product-card img {
-        height: 230px;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .product-card:hover img {
-        transform: scale(1.08);
-      }
-      .price-tag {
-        color: var(--primary);
-        font-weight: 700;
-      }
-      .section-title {
-        font-weight: 800;
-        letter-spacing: 0.2px;
-      }
-      .section-subtitle {
-        color: #6b7280;
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       }
 
-      /* Gallery */
-      .gallery a {
-        display: block;
-        overflow: hidden;
-        border-radius: 16px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-        position: relative;
-      }
-      .gallery img {
+      /* 🌷 Ảnh sản phẩm đều nhau */
+      .card-img-top {
+        height: 250px; /* chỉnh theo ý bạn */
         width: 100%;
-        height: 250px;
         object-fit: cover;
-        border-radius: 8px;
+      }
+
+      /* 🌸 Gallery - ảnh đều form */
+      #gallery .img-fluid {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
         transition: transform 0.3s ease;
       }
-      .gallery a:hover img {
+      #gallery .img-fluid:hover {
         transform: scale(1.05);
       }
-      .gallery-caption {
-        margin-top: 0.5rem;
-        font-weight: 500;
-        color: #333;
+
+      /* Button Primary */
+      .btn-primary {
+        background-color: #ff7eb3;
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #ff4da6;
       }
 
-      .quote {
-        background: var(--soft-green);
-        border-left: 4px solid var(--primary);
-        border-radius: 12px;
-        transition: var(--transition);
-      }
-      .quote:hover {
-        background: #d9f4e4;
-        transform: translateY(-3px);
-      }
-
-      footer {
-        background: #111;
-        color: #eee;
-      }
+      /* Footer */
       footer a {
-        color: #ce72ce;
-        text-decoration: none;
-        transition: var(--transition);
+        color: #ffb3cc;
+        transition: 0.3s;
       }
       footer a:hover {
         color: #fff;
+      }
+
+      /* Modal */
+      .modal-header {
+        background-color: #ff7eb3;
+        color: #fff;
+      }
+
+      /* Small screens: thu nhỏ height ảnh banner */
+      @media (max-width: 576px) {
+        .carousel-item img {
+          height: 240px;
+        }
+        .card-img-top {
+          height: 180px;
+        }
+        #gallery .img-fluid {
+          height: 140px;
+        }
       }
     </style>
   </head>
 
   <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="80">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+    <!-- 🌸 Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light sticky-top shadow-sm">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="./index.html">🌸 Flowerly</a>
+        <a class="navbar-brand fw-bold text-primary" href="#">🌸 Flowerly</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -225,220 +117,317 @@
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
-          aria-label="Mở menu điều hướng"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="./index.html">Trang chủ</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/products.html">Sản phẩm</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/gallery.html">Bộ sưu tập</a></li>
-            <li class="nav-item"><a class="nav-link" href="./pages/contact.html">Liên hệ</a></li>
+            <li class="nav-item">
+              <a class="nav-link active" href="../index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/products.html">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/gallery.html">Bộ sưu tập</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/contact.html">Liên hệ</a>
+            </li>
           </ul>
+          <form class="d-flex ms-lg-3 mt-2 mt-lg-0" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Tìm hoa..."
+              aria-label="Tìm hoa"
+            />
+            <button class="btn btn-outline-primary" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
         </div>
       </div>
     </nav>
 
-    <!-- Hero -->
-    <header id="home" class="hero text-center py-5">
-      <div class="container py-4">
-        <h1 class="display-5 fw-bold text-success" data-aos="fade-down">
-          Chào mừng đến với Flowerly
-        </h1>
-        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
-          Hoa tươi – Gửi trọn yêu thương 🌷
-        </p>
-        <a
-          href="#products"
-          class="btn btn-primary-soft px-4 py-2"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          >Xem sản phẩm</a
-        >
+    <!-- 🌼 Carousel Banner -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="./images/banner.png"
+            class="d-block w-100"
+            alt="Banner hoa"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./images/Banner1.png"
+            class="d-block w-100"
+            alt="Banner hoa 2"
+          />
+        </div>
       </div>
-    </header>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#mainCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#mainCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
-    <!-- Products -->
+    <!-- 🌷 Products -->
     <section id="products" class="py-5">
       <div class="container text-center">
-        <div data-aos="fade-up">
-          <h2 class="section-title mb-2">
-            <i class="bi bi-star-fill text-warning"></i> Sản phẩm nổi bật
-          </h2>
-          <p class="section-subtitle mb-4">Những bó hoa được yêu thích nhất</p>
-        </div>
-        <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
-          <div class="col" data-aos="fade-up" data-aos-delay="100">
-            <div class="card product-card">
-              <img src="./images/Hoahongpastel.jpeg" alt="Hồng Pastel Tinh Khôi" />
-              <div class="card-body">
-                <h5 class="card-title">Hồng Pastel Tinh Khôi</h5>
-                <p class="text-muted">Bó hoa dịu dàng, hoàn hảo cho sinh nhật và kỷ niệm.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price-tag">489.000₫</span>
-                  <a href="#" class="btn btn-sm btn-primary-soft"><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col" data-aos="fade-up" data-aos-delay="200">
-            <div class="card product-card">
-              <img src="./images/HoaTulip.jpg" alt="Tulip Sắc Màu" />
-              <div class="card-body">
-                <h5 class="card-title">Tulip Sắc Màu</h5>
-                <p class="text-muted">Năng lượng tích cực, thích hợp gửi tặng người thân.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price-tag">559.000₫</span>
-                  <a href="#" class="btn btn-sm btn-primary-soft"><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col" data-aos="fade-up" data-aos-delay="300">
-            <div class="card product-card">
-              <img src="./images/Camtucau.jpg" alt="Cẩm Tú Cầu Xanh" />
-              <div class="card-body">
-                <h5 class="card-title">Cẩm Tú Cầu Xanh</h5>
-                <p class="text-muted">Thanh lịch và trang nhã, dành cho chúc mừng & khai trương.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price-tag">629.000₫</span>
-                  <a href="#" class="btn btn-sm btn-primary-soft"><i class="bi bi-cart-plus"></i> Thêm vào giỏ</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery" class="py-5 bg-light">
-      <div class="container text-center">
-        <h2 class="section-title mb-4" data-aos="fade-up">
-          <i class="bi bi-images text-success"></i> Bộ sưu tập
+        <h2 class="fw-bold mb-3 text-primary">
+          <i class="bi bi-star-fill text-warning"></i> Sản phẩm nổi bật
         </h2>
-        <div class="row g-3 gallery row-cols-2 row-cols-md-4">
-          <!-- Ảnh 1 -->
-          <div class="col" data-aos="zoom-in" data-aos-delay="100">
-            <a href="./images/HoaCuoi.png" class="glightbox" data-gallery="flowers" data-title="Hoa cưới">
-              <img src="./images/HoaCuoi.png" alt="Hoa cưới" />
-            </a>
-            <p class="gallery-caption">Hoa cưới</p>
+        <p class="text-muted mb-5">
+          Những bó hoa được yêu thích nhất của Flowerly
+        </p>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="./images/Hoahongpastel.jpeg"
+                class="card-img-top img-fluid"
+                alt="Hồng Pastel"
+              />
+              <div class="card-body text-start">
+                <h5 class="card-title">Hồng Pastel Tinh Khôi</h5>
+                <p class="text-muted">
+                  Bó hoa dịu dàng, hoàn hảo cho sinh nhật và kỷ niệm.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <span class="fw-bold text-primary">489.000₫</span>
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    <i class="bi bi-cart-plus"></i> Đặt ngay
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Ảnh 2 -->
-          <div class="col" data-aos="zoom-in" data-aos-delay="200">
-            <a href="./images/Hoasinhnhat.jpg" class="glightbox" data-gallery="flowers" data-title="Hoa sinh nhật">
-              <img src="./images/Hoasinhnhat.jpg" alt="Hoa sinh nhật" />
-            </a>
-            <p class="gallery-caption">Hoa sinh nhật</p>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="./images/HoaTulip.jpg"
+                class="card-img-top img-fluid"
+                alt="Tulip Sắc Màu"
+              />
+              <div class="card-body text-start">
+                <h5 class="card-title">Tulip Sắc Màu</h5>
+                <p class="text-muted">
+                  Tươi sáng, gửi gắm lời chúc ngọt ngào đến người thân.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <span class="fw-bold text-primary">559.000₫</span>
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    <i class="bi bi-cart-plus"></i> Đặt ngay
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Ảnh 3 -->
-          <div class="col" data-aos="zoom-in" data-aos-delay="300">
-            <a href="./images/Trangtribantiec.jpg" class="glightbox" data-gallery="flowers" data-title="Hoa trang trí bàn">
-              <img src="./images/Trangtribantiec.jpg" alt="Hoa trang trí bàn" />
-            </a>
-            <p class="gallery-caption">Hoa trang trí bàn</p>
-          </div>
-          <!-- Ảnh 4 -->
-          <div class="col" data-aos="zoom-in" data-aos-delay="400">
-            <a href="./images/Khaitruong.jpg" class="glightbox" data-gallery="flowers" data-title="Hoa chúc mừng">
-              <img src="./images/Khaitruong.jpg" alt="Hoa chúc mừng" />
-            </a>
-            <p class="gallery-caption">Hoa khai trương</p>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img
+                src="./images/Camtucau.jpg"
+                class="card-img-top img-fluid"
+                alt="Cẩm Tú Cầu Xanh"
+              />
+              <div class="card-body text-start">
+                <h5 class="card-title">Cẩm Tú Cầu Xanh</h5>
+                <p class="text-muted">
+                  Thanh lịch, trang nhã – lựa chọn tuyệt vời cho chúc mừng.
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-3"
+                >
+                  <span class="fw-bold text-primary">629.000₫</span>
+                  <button
+                    class="btn btn-outline-primary btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                  >
+                    <i class="bi bi-cart-plus"></i> Đặt ngay
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Quotes / Image -->
+    <!-- 🌸 Gallery -->
+    <section id="gallery" class="py-5 bg-light text-center">
+      <div class="container">
+        <h2 class="fw-bold mb-4 text-success">
+          <i class="bi bi-images"></i> Bộ sưu tập
+        </h2>
+        <div class="row row-cols-2 row-cols-md-4 g-3">
+          <div class="col">
+            <img
+              src="./images/HoaCuoi.png"
+              class="img-fluid rounded shadow-sm"
+              alt="Hoa cưới"
+            />
+            <p class="mt-2 fw-semibold">Hoa cưới</p>
+          </div>
+          <div class="col">
+            <img
+              src="./images/Hoasinhnhat.jpg"
+              class="img-fluid rounded shadow-sm"
+              alt="Hoa sinh nhật"
+            />
+            <p class="mt-2 fw-semibold">Hoa sinh nhật</p>
+          </div>
+          <div class="col">
+            <img
+              src="./images/Trangtribantiec.jpg"
+              class="img-fluid rounded shadow-sm"
+              alt="Hoa trang trí bàn"
+            />
+            <p class="mt-2 fw-semibold">Hoa trang trí bàn</p>
+          </div>
+          <div class="col">
+            <img
+              src="./images/Khaitruong.jpg"
+              class="img-fluid rounded shadow-sm"
+              alt="Hoa khai trương"
+            />
+            <p class="mt-2 fw-semibold">Hoa khai trương</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 💬 Testimonials -->
     <section class="py-5">
       <div class="container">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-6" data-aos="fade-right">
-            <blockquote class="quote p-4 mb-3">
-              <p class="mb-2">
-                “Hoa rất tươi và được gói đẹp xuất sắc! Giao nhanh đúng hẹn, mẹ
-                mình rất thích.”
+        <h3 class="fw-bold text-center mb-5">Khách hàng nói gì?</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="border-start border-4 border-primary p-4 bg-light rounded">
+              <p>
+                “Hoa rất tươi và được gói đẹp xuất sắc! Giao nhanh đúng hẹn.”
               </p>
               <footer class="text-muted">— Minh Anh, Ninh Kiều</footer>
-            </blockquote>
-            <blockquote class="quote p-4">
-              <p class="mb-2">
-                “Dịch vụ tận tâm, tư vấn phối màu siêu xịn. Sẽ ủng hộ dài dài.”
-              </p>
-              <footer class="text-muted">— Quốc Huy, Cái Răng</footer>
-            </blockquote>
+            </div>
           </div>
-          <div class="col-lg-6" data-aos="fade-left">
-            <img
-              class="w-100 rounded-4 shadow"
-              src="./images/vuonnhoa.jpg"
-            />
+          <div class="col-md-6">
+            <div class="border-start border-4 border-primary p-4 bg-light rounded">
+              <p>“Dịch vụ tận tâm, tư vấn phối màu siêu xịn. Sẽ ủng hộ dài dài.”</p>
+              <footer class="text-muted">— Quốc Huy, Cái Răng</footer>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section
-      id="contact"
-      class="py-5 text-center"
-      style="background: var(--soft-cream)"
-    >
-      <div class="container" data-aos="fade-up">
-        <h3 class="fw-bold mb-2">Đặt hoa theo yêu cầu</h3>
-        <p class="text-muted mb-3">
-          Inbox cho Flowerly để được tư vấn phối mẫu trong 5 phút 🌸
+    <!-- 📩 Contact -->
+    <section id="contact" class="py-5 bg-light text-center">
+      <div class="container">
+        <h3 class="fw-bold mb-3">Đặt hoa theo yêu cầu</h3>
+        <p class="text-muted mb-4">
+          Liên hệ ngay để được tư vấn và giao hoa trong 2 giờ 🌸
         </p>
-        <a href="#" class="btn btn-primary-soft px-4">Liên hệ ngay</a>
+        <a href="#" class="btn btn-primary px-4">Liên hệ ngay</a>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center py-4">
+    <!-- 🛒 Modal Form -->
+    <div
+      class="modal fade"
+      id="orderModal"
+      tabindex="-1"
+      aria-labelledby="orderModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderModalLabel">Đặt hoa ngay 🌷</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Họ và tên</label>
+                <input type="text" class="form-control" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Số điện thoại</label>
+                <input type="tel" class="form-control" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Lời nhắn (tùy chọn)</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Gửi đơn hàng
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🌿 Footer -->
+    <footer class="text-center py-4 bg-dark text-white">
       <div class="container">
         <p class="mb-1">
-          © 2025 Flowerly | Thiết kế bởi <strong>Nhóm 2</strong>.
+          © 2025 Flowerly | Thiết kế bởi <strong>Nhóm 2</strong>
         </p>
         <small>
           Theo dõi chúng tôi:
-          <a href="#"><i class="bi bi-facebook"></i> Facebook</a> ·
-          <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+          <a href="#"><i class="bi bi-facebook mx-1"></i></a>
+          <a href="#"><i class="bi bi-instagram mx-1"></i></a>
         </small>
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ✅ Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
 
     <script>
-      // Khởi tạo AOS
-      AOS.init({
-        duration: 800,
-        once: true,
-      });
-
-      // Khởi tạo GLightbox
-      const lightbox = GLightbox({
-        selector: '.glightbox',
-        width: '800px',
-        height: '600px',
-        zoomable: true,
-      });
-
-      // Navbar shadow khi cuộn
-      const navbar = document.querySelector(".navbar");
+      // Hiệu ứng đổi màu navbar khi cuộn
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 10) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
+        const nav = document.querySelector(".navbar");
+        nav.classList.toggle("scrolled", window.scrollY > 50);
       });
     </script>
   </body>
