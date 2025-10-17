@@ -1,9 +1,4 @@
-AOS.init({
-  duration: 700,
-  once: true,
-});
-
-// --- START: PRODUCT DATA AND FILTERING LOGIC ---
+// --- START: PRODUCT DATA AND FILTERING LOGIC (Bootstrap only, no AOS) ---
 
 // Dữ liệu sản phẩm (thay vì hard-code trong HTML)
 const allProducts = [
@@ -42,8 +37,7 @@ const allProducts = [
     name: "Hoa cưới",
     price: 450000,
     category: "Hoa hướng dương",
-    image:
-      "../images/Hoacuoi.png",
+    image: "../images/HoaCuoi.png",
     isNew: true,
     desc: "Mang năng lượng tích cực và niềm vui.",
   },
@@ -83,9 +77,7 @@ function renderProducts(products) {
 
   products.forEach((product, index) => {
     const cardHTML = `
-              <div class="col d-flex" data-aos="fade-up" data-aos-delay="${
-                index * 50
-              }">
+              <div class="col d-flex">
                 <div class="card product-card w-100">
                   ${
                     product.isNew
@@ -104,7 +96,7 @@ function renderProducts(products) {
                       )}₫</span>
                       <a class="btn btn-outline-success btn-sm" href="product-detail.html?id=${
                         product.id
-                      }"><i class="bi bi-eye"></i> Xem chi tiết</a>
+                      }">Xem chi tiết</a>
                     </div>
                   </div>
                 </div>

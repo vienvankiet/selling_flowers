@@ -1,8 +1,3 @@
-AOS.init({
-  duration: 800,
-  once: true,
-});
-
 // --- IMPROVED FORM VALIDATION AND SUBMISSION ---
 const contactForm = document.getElementById("contact-form");
 const formFeedback = document.getElementById("form-feedback");

@@ -1,0 +1,120 @@
+/* Selling Flowers — Custom Styles (Bootstrap enhancements only) */
+:root {
+  --primary: #38a169;
+  --primary-600: #2f855a;
+  --accent: #ff7eb3;
+  --ink: #1f2937;
+  --soft-cream: #fff7f3;
+  --soft-green: #e9f7ef;
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+.navbar.scrolled {
+  background-color: #ffffffdd !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.nav-link:hover,
+.nav-link.active { color: var(--primary) !important; }
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent);
+  border: none;
+}
+.btn-primary:hover { background-color: #ff4da6; }
+.btn-success,
+.btn-send,
+.btn-buy {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.btn-success:hover,
+.btn-send:hover,
+.btn-buy:hover {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+/* Carousel */
+.carousel-item img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Cards / Products */
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+.card-img-top,
+.product-card img { height: 250px; width: 100%; object-fit: cover; }
+.product-card { border-radius: 16px; overflow: hidden; }
+.price { color: var(--primary); font-weight: 700; }
+.badge-new { background: var(--primary); color: #fff; animation: pulse-badge 2s infinite ease-in-out; }
+@keyframes pulse-badge {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(47, 133, 90, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 8px rgba(47, 133, 90, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(47, 133, 90, 0); }
+}
+
+/* Gallery */
+.gallery-item { position: relative; border-radius: 16px; overflow: hidden; display: block; aspect-ratio: 1/1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item .overlay {
+  position: absolute; inset: auto 0 0 0; color: #fff; opacity: 0; transition: opacity 0.35s ease; padding: 40px 20px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+.gallery-item:hover .overlay { opacity: 1; }
+.overlay-title { font-weight: 600; font-size: 1rem; }
+
+/* Product detail extras */
+.product-image { border-radius: 0.75rem; object-fit: cover; height: 100%; max-height: 500px; }
+.voucher-box .form-check { padding: 0.75rem; background-color: #fff6f8; border: 1px dashed #ff85a1; border-radius: 8px; margin-bottom: 0.5rem; }
+.hotline { background: #ffe5ec; border-radius: 10px; padding: 1rem; margin-top: 1.5rem; text-align: center; font-weight: 600; }
+
+/* Footer */
+footer a { color: #ffb3cc; transition: 0.3s; }
+footer a:hover { color: #fff; }
+
+/* Utilities */
+.toolbar { background: #ffffff; border-radius: 14px; border: 1px solid #dee2e6; }
+
+/* Contact page helpers */
+.card-cta {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+}
+.info-item { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+.info-item i { font-size: 1.2rem; color: var(--primary); margin-right: 12px; margin-top: 2px; }
+.info-item a { text-decoration: none; color: var(--primary-600); }
+.info-item a:hover { text-decoration: underline; }
+.input-group-text { background-color: transparent; }
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .carousel-item img { height: 240px; }
+  .card-img-top, .product-card img { height: 180px; }
+}

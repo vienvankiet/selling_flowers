@@ -3,121 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="https://cdn.pixabay.com/animation/2023/06/01/08/47/08-47-04-41__480.png"
-      type="image/x-icon"
-    />
     <title>Flowerly • Bộ sưu tập</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <style>
-      :root {
-        --primary: #38a169;
-        --ink: #1f2937;
-        --soft-green: #e9f7ef;
-      }
-
-      body {
-        font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-        color: var(--ink);
-      }
-
-      .navbar {
-        background-color: rgba(255, 255, 255, 0.85) !important;
-        backdrop-filter: saturate(120%) blur(8px);
-        -webkit-backdrop-filter: saturate(120%) blur(8px);
-      }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: var(--primary) !important;
-      }
-
-      /* Filter Buttons */
-      .filter-btn-group .btn {
-        border-radius: 99px;
-        font-weight: 500;
-        margin: 0 5px;
-        background-color: #e9ecef;
-        color: var(--ink);
-        border: none;
-        transition: all 0.3s ease;
-      }
-      .filter-btn-group .btn:hover {
-        background-color: var(--soft-green);
-      }
-      .filter-btn-group .btn.active {
-        background-color: var(--primary);
-        color: white;
-        box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
-      }
-
-      /* Gallery Tile */
-      .gallery-item {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        display: block;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        aspect-ratio: 1 / 1; /* tất cả vuông đều */
-      }
-
-      .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.05);
-      }
-
-      /* Hover Overlay */
-      .gallery-item .overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-        color: white;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        padding: 40px 20px 20px 20px;
-      }
-
-      .gallery-item:hover .overlay {
-        opacity: 1;
-      }
-
-      .overlay-title {
-        transform: translateY(10px);
-        transition: transform 0.4s ease;
-        font-weight: 600;
-        font-size: 1rem;
-      }
-
-      .gallery-item:hover .overlay-title {
-        transform: translateY(0);
-      }
-    </style>
+    <!-- Bootstrap CSS (local) -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- NAVBAR -->
+    <!-- Bootstrap Navbar: Thanh điều hướng responsive -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="../index.html">🌸 Flowerly</a>
@@ -148,7 +42,7 @@
       </div>
     </nav>
 
-    <!-- HEADER -->
+    <!-- Bootstrap Utilities: Phần tiêu đề -->
     <header class="py-5 bg-light text-center">
       <div class="container">
         <h1 class="display-6 fw-bold">Bộ sưu tập Flowerly</h1>
@@ -158,14 +52,10 @@
       </div>
     </header>
 
-    <!-- GALLERY -->
+    <!-- Bootstrap Buttons + Grid: Bộ lọc và lưới ảnh -->
     <main class="py-5">
       <div class="container">
-        <div
-          id="gallery-filters"
-          class="text-center mb-4 filter-btn-group"
-          data-aos="fade-up"
-        >
+        <div id="gallery-filters" class="text-center mb-4 filter-btn-group">
           <button class="btn btn-sm active" data-filter="all">Tất cả</button>
           <button class="btn btn-sm" data-filter="cuoi">Hoa Cưới</button>
           <button class="btn btn-sm" data-filter="sukien">Sự Kiện</button>
@@ -176,18 +66,31 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Bootstrap Footer: Chân trang tối màu -->
     <footer class="text-center py-4 bg-dark text-light mt-4">
       <div class="container">
         <small>© 2025 Flowerly • Thiết kế bởi Nhóm 2</small>
       </div>
     </footer>
 
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Bootstrap Modal: Hiển thị ảnh phóng to khi nhấp -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="imageModalLabel">Xem ảnh</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <img id="modalImage" src="" alt="" class="img-fluid rounded" />
+            <p id="modalCaption" class="mt-2 mb-0 text-muted"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Bootstrap JS (local) -->
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
       const galleryItems = [
         { src: "../images/Trangtribantiec.jpg", category: "trangtri", title: "Trang trí bàn tiệc" },
@@ -202,35 +105,42 @@
       ];
 
       const grid = document.getElementById("gallery-grid");
-      let lightbox;
+      const modalElement = document.getElementById('imageModal');
+      const modal = new bootstrap.Modal(modalElement);
+      const modalImg = document.getElementById('modalImage');
+      const modalCaption = document.getElementById('modalCaption');
 
       function renderGallery(items) {
-        grid.innerHTML = "";
+        grid.innerHTML = '';
         items.forEach((item) => {
-          const div = document.createElement("div");
-          div.className = "col-6 col-md-4 col-lg-3";
-          div.innerHTML = `
-            <a href="${item.src}" class="gallery-item glightbox" data-gallery="flowerly-gallery">
+          const col = document.createElement('div');
+          col.className = 'col-6 col-md-4 col-lg-3';
+          col.innerHTML = `
+            <a href="#" class="gallery-item" data-src="${item.src}" data-title="${item.title}">
               <img src="${item.src}" alt="${item.title}">
               <div class="overlay"><h6 class="overlay-title">${item.title}</h6></div>
             </a>`;
-          grid.appendChild(div);
+          const anchor = col.querySelector('.gallery-item');
+          anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalImg.src = item.src;
+            modalCaption.textContent = item.title;
+            modal.show();
+          });
+          grid.appendChild(col);
         });
-        if (lightbox) lightbox.reload();
-        else lightbox = GLightbox({ selector: ".glightbox" });
       }
 
-      document.querySelectorAll("#gallery-filters .btn").forEach((button) => {
-        button.addEventListener("click", () => {
-          document.querySelectorAll("#gallery-filters .btn").forEach((b) => b.classList.remove("active"));
-          button.classList.add("active");
-          const filterValue = button.dataset.filter;
-          const filteredItems = filterValue === "all" ? galleryItems : galleryItems.filter((i) => i.category === filterValue);
-          renderGallery(filteredItems);
+      document.querySelectorAll('#gallery-filters .btn').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('#gallery-filters .btn').forEach((b) => b.classList.remove('active'));
+          button.classList.add('active');
+          const value = button.dataset.filter;
+          const filtered = value === 'all' ? galleryItems : galleryItems.filter((i) => i.category === value);
+          renderGallery(filtered);
         });
       });
 
-      AOS.init({ duration: 800, once: true });
       renderGallery(galleryItems);
     </script>
   </body>

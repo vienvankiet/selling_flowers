@@ -1,5 +1,88 @@
-    <link
-      rel="shortcut icon"
-      href="https://cdn.pixabay.com/animation/2023/06/01/08/47/08-47-04-41__480.png"
-      type="image/x-icon"
-    />
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flowerly • Blog</title>
+    <!-- Bootstrap CSS (local) -->
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Bootstrap Navbar: Thanh điều hướng -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="../index.html">🌸 Flowerly</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="nav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
+            <li class="nav-item"><a class="nav-link" href="./products.html">Sản phẩm</a></li>
+            <li class="nav-item"><a class="nav-link" href="./gallery.html">Bộ sưu tập</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="./contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bootstrap Header: Tiêu đề trang -->
+    <header class="py-5 bg-light text-center">
+      <div class="container">
+        <h1 class="display-6 fw-bold">Blog Flowerly</h1>
+        <p class="text-muted mb-0 lead">Chia sẻ bí quyết chọn hoa và câu chuyện đẹp.</p>
+      </div>
+    </header>
+
+    <!-- Bootstrap Cards + Grid: Danh sách bài viết -->
+    <main class="py-5">
+      <div class="container">
+        <div class="row g-4 row-cols-1 row-cols-md-3">
+          <div class="col">
+            <div class="card h-100">
+              <img src="../images/Hoasinhnhat.jpg" class="card-img-top" alt="Chọn hoa sinh nhật" />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">5 gợi ý chọn hoa sinh nhật</h5>
+                <p class="text-muted flex-grow-1">Những bó hoa phù hợp với từng cá tính và độ tuổi.</p>
+                <a href="#" class="btn btn-success mt-auto">Đọc tiếp</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="../images/HoaCuoi.png" class="card-img-top" alt="Hoa cưới" />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Xu hướng hoa cưới năm nay</h5>
+                <p class="text-muted flex-grow-1">Màu sắc pastel và phong cách tự nhiên lên ngôi.</p>
+                <a href="#" class="btn btn-success mt-auto">Đọc tiếp</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <img src="../images/Hoale.jpg" class="card-img-top" alt="Hoa dịp lễ" />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Hoa phù hợp cho dịp lễ</h5>
+                <p class="text-muted flex-grow-1">Gợi ý chọn hoa tinh tế cho các dịp đặc biệt.</p>
+                <a href="#" class="btn btn-success mt-auto">Đọc tiếp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap Footer: Chân trang -->
+    <footer class="text-center py-4 bg-dark text-light mt-4">
+      <div class="container">
+        <small>© 2025 Flowerly • Thiết kế bởi Nhóm 2</small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS (local) -->
+    <script src="../../bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
