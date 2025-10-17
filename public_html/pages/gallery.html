@@ -9,6 +9,7 @@
       type="image/x-icon"
     />
     <title>Flowerly • Bộ sưu tập</title>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -22,6 +23,7 @@
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
 
     <style>
       :root {
@@ -117,10 +119,10 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="../index.html">🌸 Flowerly</a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -129,6 +131,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div id="nav" class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -148,7 +151,6 @@
       </div>
     </nav>
 
-    <!-- HEADER -->
     <header class="py-5 bg-light text-center">
       <div class="container">
         <h1 class="display-6 fw-bold">Bộ sưu tập Flowerly</h1>
@@ -158,7 +160,6 @@
       </div>
     </header>
 
-    <!-- GALLERY -->
     <main class="py-5">
       <div class="container">
         <div
@@ -172,33 +173,64 @@
           <button class="btn btn-sm" data-filter="trangtri">Trang Trí</button>
         </div>
 
-        <div id="gallery-grid" class="row g-3"></div>
+        <div id="gallery-grid" class="row g-3">
+          </div>
       </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="text-center py-4 bg-dark text-light mt-4">
       <div class="container">
         <small>© 2025 Flowerly • Thiết kế bởi Nhóm 2</small>
       </div>
     </footer>
 
-    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
       const galleryItems = [
-        { src: "../images/Trangtribantiec.jpg", category: "trangtri", title: "Trang trí bàn tiệc" },
-        { src: "../images/Khaitruong.jpg", category: "sukien", title: "Hoa khai trương" },
-        { src: "../images/Banhvahoa.jpg", category: "sukien", title: "Bánh và hoa sinh nhật" },
-        { src: "../images/Hoacaiaochure.jpg", category: "cuoi", title: "Hoa cài áo chú rể" },
-        { src: "../images/Hoagoclamviec.jpg", category: "trangtri", title: "Hoa góc làm việc" },
-        { src: "../images/Hoale.jpg", category: "sukien", title: "Hoa tặng 8/3" },
+        {
+          src: "../images/Trangtribantiec.jpg",
+          category: "trangtri",
+          title: "Trang trí bàn tiệc",
+        },
+        {
+          src: "../images/Khaitruong.jpg",
+          category: "sukien",
+          title: "Hoa khai trương",
+        },
+        {
+          src: "../images/Banhvahoa.jpg",
+          category: "sukien",
+          title: "Bánh và hoa sinh nhật",
+        },
+        {
+          src: "../images/Hoacaiaochure.jpg",
+          category: "cuoi",
+          title: "Hoa cài áo chú rể",
+        },
+        {
+          src: "../images/Hoagoclamviec.jpg",
+          category: "trangtri",
+          title: "Hoa góc làm việc",
+        },
+        {
+          src: "../images/Hoale.jpg",
+          category: "sukien",
+          title: "Hoa tặng 8/3",
+        },
         { src: "../images/HoaCuoi.png", category: "cuoi", title: "Hoa cưới" },
-        { src: "../images/Hoatinhyeu.jpeg", category: "sukien", title: "Bó hoa tình yêu" },
-        { src: "../images/Congcuoi.jpg", category: "cuoi", title: "Cổng hoa đám cưới" },
+        {
+          src: "../images/Hoatinhyeu.jpeg",
+          category: "sukien",
+          title: "Bó hoa tình yêu",
+        },
+        {
+          src: "../images/Congcuoi.jpg",
+          category: "cuoi",
+          title: "Cổng hoa đám cưới",
+        },
       ];
 
       const grid = document.getElementById("gallery-grid");
@@ -208,29 +240,51 @@
         grid.innerHTML = "";
         items.forEach((item) => {
           const div = document.createElement("div");
+          /*
+            GRID SYSTEM (COLUMN):
+            .col-6:    Trên màn hình nhỏ nhất (xs), cột chiếm 6/12 (50%) chiều rộng.
+            .col-md-4: Trên màn hình trung bình (md) trở lên, cột chiếm 4/12 (33.3%) chiều rộng.
+            .col-lg-3: Trên màn hình lớn (lg) trở lên, cột chiếm 3/12 (25%) chiều rộng.
+            Đây là cốt lõi của Responsive Design trong Bootstrap.
+          */
           div.className = "col-6 col-md-4 col-lg-3";
           div.innerHTML = `
             <a href="${item.src}" class="gallery-item glightbox" data-gallery="flowerly-gallery">
-              <img src="${item.src}" alt="${item.title}">
+              <img src="${item.src}" alt="${item.title}" class="img-fluid">
               <div class="overlay"><h6 class="overlay-title">${item.title}</h6></div>
             </a>`;
           grid.appendChild(div);
         });
+
+        // Khởi tạo lại GLightbox sau khi thêm ảnh mới
         if (lightbox) lightbox.reload();
         else lightbox = GLightbox({ selector: ".glightbox" });
       }
 
+      // Xử lý sự kiện click cho các nút lọc
       document.querySelectorAll("#gallery-filters .btn").forEach((button) => {
         button.addEventListener("click", () => {
-          document.querySelectorAll("#gallery-filters .btn").forEach((b) => b.classList.remove("active"));
+          // Xóa class .active khỏi tất cả các nút
+          document
+            .querySelectorAll("#gallery-filters .btn")
+            .forEach((b) => b.classList.remove("active"));
+          // Thêm class .active vào nút vừa nhấn
           button.classList.add("active");
+
           const filterValue = button.dataset.filter;
-          const filteredItems = filterValue === "all" ? galleryItems : galleryItems.filter((i) => i.category === filterValue);
+          // Lọc mảng dữ liệu dựa trên data-filter
+          const filteredItems =
+            filterValue === "all"
+              ? galleryItems
+              : galleryItems.filter((i) => i.category === filterValue);
+          // Vẽ lại bộ sưu tập với dữ liệu đã lọc
           renderGallery(filteredItems);
         });
       });
 
+      // Khởi tạo AOS (Animate On Scroll)
       AOS.init({ duration: 800, once: true });
+      // Vẽ bộ sưu tập lần đầu khi tải trang
       renderGallery(galleryItems);
     </script>
   </body>

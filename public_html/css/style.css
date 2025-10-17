@@ -1,0 +1,89 @@
+:root {
+  --primary: #38a169;
+  --ink: #1f2937;
+  --soft-green: #e9f7ef;
+}
+
+body {
+  font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* Filter Buttons */
+.filter-btn-group .btn {
+  border-radius: 99px;
+  font-weight: 500;
+  margin: 0 5px;
+  background-color: #e9ecef;
+  color: var(--ink);
+  border: none;
+  transition: all 0.3s ease;
+}
+.filter-btn-group .btn:hover {
+  background-color: var(--soft-green);
+}
+.filter-btn-group .btn.active {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+}
+
+/* Gallery Tile */
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  aspect-ratio: 1 / 1; /* tất cả vuông đều */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Hover Overlay */
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 40px 20px 20px 20px;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.gallery-item:hover .overlay-title {
+  transform: translateY(0);
+}
